@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Ramadan Mubarak Kareem</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        />
+        <style>
+            @import url("https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Playfair+Display:wght@400;500;700&family=Cormorant+Garamond:wght@300;400;500;600&display=swap");
+
+            :root {
+                --deep-blue: #0b1736;
+                --royal-gold: #d4af37;
+                --royal-gold-light: #e9d498;
+                --midnight: #121638;
+                --teal: #145266;
+                --light-gold: #f8efd4;
+                --accent: #6a4c93;
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: "Cormorant Garamond", serif;
+                background: linear-gradient(
+                    135deg,
+                    var(--midnight) 0%,
+                    var(--deep-blue) 50%,
+                    var(--teal) 100%
+                );
+                color: var(--light-gold);
+                min-height: 100vh;
+                overflow-x: hidden;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
+            body::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+                opacity: 0.2;
+                pointer-events: none;
+            }
+
+            .stars {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+                z-index: 0;
+            }
+
+            .star {
+                position: absolute;
+                background-color: rgba(255, 255, 255, 0.8);
+                border-radius: 50%;
+                animation: twinkle 5s infinite;
+            }
+
+            @keyframes twinkle {
+                0% {
+                    opacity: 0.2;
+                }
+                50% {
+                    opacity: 0.8;
+                }
+                100% {
+                    opacity: 0.2;
+                }
+            }
+
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 2rem;
+                position: relative;
+                z-index: 1;
+                text-align: center;
+                width: 100%;
+            }
+
+            .lantern {
+                position: absolute;
+                width: 40px;
+                height: 60px;
+                background: radial-gradient(
+                    ellipse at center,
+                    rgba(255, 215, 0, 0.6) 0%,
+                    rgba(255, 215, 0, 0) 70%
+                );
+                border-radius: 50%;
+                transform-origin: center top;
+                animation: sway 8s ease-in-out infinite;
+                opacity: 0;
+            }
+
+            .lantern::before {
+                content: "";
+                position: absolute;
+                width: 30px;
+                height: 45px;
+                background-color: var(--royal-gold);
+                border-radius: 15px;
+                top: 0;
+                left: 5px;
+                filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.8));
+            }
+
+            .lantern::after {
+                content: "";
+                position: absolute;
+                width: 10px;
+                height: 10px;
+                background-color: var(--royal-gold-light);
+                border-radius: 50%;
+                bottom: -5px;
+                left: 15px;
+            }
+
+            @keyframes sway {
+                0% {
+                    transform: rotate(-5deg);
+                }
+                50% {
+                    transform: rotate(5deg);
+                }
+                100% {
+                    transform: rotate(-5deg);
+                }
+            }
+
+            .header {
+                margin-bottom: 2rem;
+                text-align: center;
+                position: relative;
+                z-index: 10;
+            }
+
+            .moon-container {
+                position: relative;
+                height: 200px;
+                width: 200px;
+                margin: 0 auto 2rem;
+                transform-style: preserve-3d;
+                perspective: 1000px;
+            }
+
+            .moon {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                background: linear-gradient(
+                    135deg,
+                    var(--royal-gold-light) 0%,
+                    var(--royal-gold) 100%
+                );
+                box-shadow: 0 0 60px rgba(212, 175, 55, 0.6);
+                transform: translateZ(20px);
+                overflow: hidden;
+                opacity: 0;
+                transform: scale(0.5);
+                animation: moonAppear 1.5s ease-out 0.5s forwards;
+            }
+
+            @keyframes moonAppear {
+                0% {
+                    opacity: 0;
+                    transform: scale(0.5) translateZ(20px);
+                }
+                100% {
+                    opacity: 1;
+                    transform: scale(1) translateZ(20px);
+                }
+            }
+
+            .moon::before {
+                content: "";
+                position: absolute;
+                top: -30px;
+                right: -30px;
+                width: 180px;
+                height: 180px;
+                border-radius: 50%;
+                background: var(--deep-blue);
+                opacity: 0.9;
+            }
+
+            .title-container {
+                perspective: 1000px;
+                transform-style: preserve-3d;
+                margin-bottom: 3rem;
+            }
+
+            .title {
+                opacity: 0;
+                transform: translateY(30px);
+                animation: fadeIn 1s ease-out forwards;
+                animation-delay: 1.8s;
+            }
+
+            .title-arabic {
+                font-family: "Amiri", serif;
+                font-size: clamp(2.5rem, 8vw, 5rem);
+                font-weight: bold;
+                color: var(--royal-gold);
+                margin-bottom: 1rem;
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+                line-height: 1.2;
+            }
+
+            .title-english {
+                font-family: "Playfair Display", serif;
+                font-size: clamp(1.8rem, 6vw, 3rem);
+                font-weight: 500;
+                color: var(--light-gold);
+                margin-bottom: 0.5rem;
+                letter-spacing: 2px;
+            }
+
+            .title-french {
+                font-family: "Cormorant Garamond", serif;
+                font-size: clamp(1.4rem, 4vw, 2.2rem);
+                font-weight: 300;
+                color: var(--royal-gold-light);
+                font-style: italic;
+                letter-spacing: 1px;
+            }
+
+            @keyframes fadeIn {
+                0% {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                100% {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            /* Controls for language and references */
+            .controls {
+                display: flex;
+                justify-content: center;
+                gap: 1rem;
+                margin-bottom: 1.5rem;
+                flex-wrap: wrap;
+            }
+
+            .control-btn {
+                background-color: rgba(212, 175, 55, 0.2);
+                color: var(--royal-gold);
+                border: 1px solid rgba(212, 175, 55, 0.3);
+                border-radius: 20px;
+                padding: 0.4rem 1rem;
+                font-family: "Cormorant Garamond", serif;
+                font-size: 0.9rem;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+            .control-btn:hover {
+                background-color: var(--royal-gold);
+                color: var(--deep-blue);
+                transform: translateY(-2px);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+
+            .control-btn.active {
+                background-color: var(--royal-gold);
+                color: var(--deep-blue);
+                font-weight: bold;
+            }
+
+            .verse-container {
+                max-width: 600px;
+                margin: 0 auto 3rem;
+                padding: 2rem;
+                background-color: rgba(11, 23, 54, 0.5);
+                border: 1px solid rgba(212, 175, 55, 0.3);
+                border-radius: 15px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+                backdrop-filter: blur(10px);
+                transform: translateY(50px);
+                opacity: 0;
+                animation: slideUp 1s ease-out forwards;
+                animation-delay: 2.5s;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .verse-container::before {
+                content: "";
+                position: absolute;
+                top: -50%;
+                left: -50%;
+                width: 200%;
+                height: 200%;
+                background: linear-gradient(
+                    45deg,
+                    transparent,
+                    rgba(212, 175, 55, 0.1),
+                    transparent
+                );
+                transform: rotate(45deg);
+                animation: shine 6s linear infinite;
+            }
+
+            @keyframes shine {
+                0% {
+                    transform: translateX(-100%) rotate(45deg);
+                }
+                100% {
+                    transform: translateX(100%) rotate(45deg);
+                }
+            }
+
+            .verse {
+                font-family: "Cormorant Garamond", serif;
+                font-size: clamp(1.1rem, 3vw, 1.6rem);
+                line-height: 1.6;
+                color: var(--light-gold);
+                text-align: center;
+                position: relative;
+                direction: ltr;
+            }
+
+            .verse.arabic {
+                font-family: "Amiri", serif;
+                direction: rtl;
+            }
+
+            .verse::before,
+            .verse::after {
+                content: '"';
+                font-size: 2em;
+                color: var(--royal-gold);
+                opacity: 0.6;
+                position: absolute;
+            }
+
+            .verse::before {
+                top: -0.5em;
+                left: -0.2em;
+            }
+
+            .verse::after {
+                bottom: -0.8em;
+                right: -0.2em;
+            }
+
+            /* References box */
+            .references-box {
+                max-width: 600px;
+                margin: 1rem auto;
+                padding: 1.5rem;
+                background-color: rgba(11, 23, 54, 0.5);
+                border: 1px solid rgba(212, 175, 55, 0.3);
+                border-radius: 15px;
+                text-align: left;
+                display: none;
+                animation: fadeIn 0.5s ease-out;
+            }
+
+            .references-box.arabic {
+                text-align: right;
+                direction: rtl;
+            }
+
+            .references-box h4 {
+                color: var(--royal-gold);
+                margin-bottom: 0.8rem;
+                font-size: 1.2rem;
+            }
+
+            .references-box ul {
+                list-style-type: none;
+                padding-left: 1rem;
+            }
+
+            .references-box.arabic ul {
+                padding-right: 1rem;
+                padding-left: 0;
+            }
+
+            .references-box li {
+                margin-bottom: 0.5rem;
+                font-size: 0.95rem;
+                position: relative;
+            }
+
+            .references-box li::before {
+                content: "•";
+                color: var(--royal-gold);
+                font-weight: bold;
+                position: absolute;
+                left: -1rem;
+            }
+
+            .references-box.arabic li::before {
+                right: -1rem;
+                left: auto;
+            }
+
+            .language-content {
+                display: none;
+            }
+
+            .language-content.active {
+                display: block;
+            }
+
+            @keyframes slideUp {
+                0% {
+                    opacity: 0;
+                    transform: translateY(50px);
+                }
+                100% {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .patterns {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                pointer-events: none;
+                opacity: 0.15;
+                z-index: 0;
+            }
+
+            .pattern {
+                position: absolute;
+                background-size: contain;
+                background-repeat: no-repeat;
+                opacity: 0;
+                animation: fadePattern 2s ease-out forwards;
+            }
+
+            @keyframes fadePattern {
+                0% {
+                    opacity: 0;
+                }
+                100% {
+                    opacity: 1;
+                }
+            }
+
+            .ornament {
+                width: 100%;
+                max-width: 800px;
+                height: 80px;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 100'%3E%3Cpath fill='%23d4af37' d='M500 50c-50 0-100-20-150-40-50-20-100-30-150-30s-100 10-150 30c-50 20-100 40-150 40s-100-20-150-40c-50-20-100-30-150-30v20c50 0 100 10 150 30 50 20 100 40 150 40s100-20 150-40c50-20 100-30 150-30s100 10 150 30c50 20 100 40 150 40s100-20 150-40c50-20 100-30 150-30s100 10 150 30c50 20 100 40 150 40s100-20 150-40c50-20 100-30 150-30v-20c-50 0-100 10-150 30-50 20-100 40-150 40s-100-20-150-40c-50-20-100-30-150-30s-100 10-150 30c-50 20-100 40-150 40z'/%3E%3C/svg%3E");
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                margin: 2rem auto;
+                opacity: 0;
+                animation: fadeIn 1s ease-out forwards;
+                animation-delay: 2.2s;
+            }
+
+            .footer {
+                margin-top: 2rem;
+                font-size: 0.9rem;
+                color: var(--royal-gold-light);
+                opacity: 0.8;
+                text-align: center;
+                opacity: 0;
+                animation: fadeIn 1s ease-out forwards;
+                animation-delay: 3s;
+            }
+
+            .social-share {
+                display: flex;
+                justify-content: center;
+                gap: 1rem;
+                margin-top: 1rem;
+            }
+
+            .share-btn {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background-color: rgba(212, 175, 55, 0.2);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: var(--royal-gold);
+                text-decoration: none;
+                transition: all 0.3s ease;
+                border: 1px solid rgba(212, 175, 55, 0.3);
+            }
+
+            .share-btn:hover {
+                background-color: var(--royal-gold);
+                color: var(--deep-blue);
+                transform: translateY(-5px);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            }
+
+            @media (max-width: 768px) {
+                .container {
+                    padding: 1rem;
+                }
+
+                .moon-container {
+                    height: 150px;
+                    width: 150px;
+                }
+
+                .verse-container {
+                    padding: 1.5rem;
+                    margin-bottom: 2rem;
+                }
+
+                .ornament {
+                    height: 60px;
+                }
+
+                .controls {
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 0.7rem;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .moon-container {
+                    height: 120px;
+                    width: 120px;
+                    margin-bottom: 1.5rem;
+                }
+
+                .verse-container {
+                    padding: 1.2rem;
+                }
+
+                .references-box {
+                    padding: 1rem;
+                }
+
+                .social-share {
+                    flex-wrap: wrap;
+                }
+            }
+
+            /* Pulse effect */
+            .pulse {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 80%;
+                height: 80%;
+                border-radius: 50%;
+                background: transparent;
+                border: 2px solid rgba(212, 175, 55, 0.5);
+                animation: pulse 4s infinite;
+            }
+
+            @keyframes pulse {
+                0% {
+                    transform: translate(-50%, -50%) scale(0.8);
+                    opacity: 0.8;
+                }
+                50% {
+                    transform: translate(-50%, -50%) scale(1.2);
+                    opacity: 0;
+                }
+                100% {
+                    transform: translate(-50%, -50%) scale(0.8);
+                    opacity: 0.8;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="stars"></div>
+        <div class="patterns"></div>
+
+        <div class="container">
+            <div class="header">
+                <div class="moon-container">
+                    <div class="moon">
+                        <div class="pulse"></div>
+                    </div>
+                </div>
+
+                <div class="title-container">
+                    <div class="title">
+                        <h1 class="title-arabic">رمضان مبارك كريم</h1>
+                        <h2 class="title-english">Blessed Ramadan</h2>
+                        <!-- <h3 class="title-french">Ramadan Moubarak Karim</h3> -->
+                    </div>
+                </div>
+
+                <div class="ornament"></div>
+            </div>
+
+            <div class="controls">
+                <button
+                    id="lang-ar"
+                    class="control-btn lang-btn"
+                    aria-label="Arabic"
+                >
+                    <i class="fas fa-language"></i> العربية
+                </button>
+                <button
+                    id="lang-en"
+                    class="control-btn lang-btn active"
+                    aria-label="English"
+                >
+                    <i class="fas fa-language"></i> English
+                </button>
+                <button
+                    id="lang-fr"
+                    class="control-btn lang-btn"
+                    aria-label="French"
+                >
+                    <i class="fas fa-language"></i> Français
+                </button>
+                <button
+                    id="references-btn"
+                    class="control-btn"
+                    aria-label="Show References"
+                >
+                    <i class="fas fa-book"></i> References
+                </button>
+            </div>
+
+            <div class="verse-container">
+                <!-- Arabic Content -->
+                <div id="content-ar" class="language-content">
+                    <p class="verse arabic">
+                        قال رسول الله ﷺ: "أتاكم رمضان، شهرٌ مبارك، فرض الله عز
+                        وجل عليكم صيامه، تُفتح فيه أبواب الجنة، وتُغلق فيه أبواب
+                        الجحيم، وتُغلّ فيه مردة الشياطين، فيه ليلةٌ خيرٌ من ألف
+                        شهر، من حُرم خيرها فقد حُرم."
+                    </p>
+                </div>
+
+                <!-- English Content -->
+                <div id="content-en" class="language-content active">
+                    <p class="verse">
+                        The Prophet (ﷺ) said: "There has come to you Ramadan, a
+                        blessed month, which Allah, the Mighty and Sublime, has
+                        enjoined you to fast. In it, the gates of Paradise are
+                        opened, the gates of Hell are closed, and the rebellious
+                        devils are chained. In it, there is a night that is
+                        better than a thousand months, and whoever is deprived
+                        of its goodness is indeed deprived."
+                    </p>
+                </div>
+
+                <!-- French Content -->
+                <div id="content-fr" class="language-content">
+                    <p class="verse">
+                        Le Prophète ﷺ a dit : "Le mois de Ramadan est venu à
+                        vous, c'est un mois béni. Allah, le Tout-Puissant et
+                        Sublime, vous a prescrit son jeûne. Durant ce mois, les
+                        portes du Paradis sont ouvertes, les portes de l'Enfer
+                        sont fermées et les diables rebelles sont enchaînés. En
+                        lui se trouve une nuit meilleure que mille mois, et
+                        quiconque est privé de son bien est véritablement
+                        privé."
+                    </p>
+                </div>
+            </div>
+
+            <!-- Arabic References -->
+            <div id="references-ar" class="references-box arabic">
+                <h4>المصدر:</h4>
+                <ul>
+                    <li>سنن النسائي (حديث 2106)</li>
+                    <li>مسند أحمد (حديث 7148)</li>
+                    <li>صحيح ابن خزيمة (حديث 1887)</li>
+                    <li>صححه الألباني في صحيح النسائي</li>
+                </ul>
+            </div>
+
+            <!-- English References -->
+            <div id="references-en" class="references-box">
+                <h4>Reference:</h4>
+                <ul>
+                    <li>Sunan an-Nasā'ī (Hadith 2106)</li>
+                    <li>Musnad Ahmad (Hadith 7148)</li>
+                    <li>Sahih Ibn Khuzaymah (Hadith 1887)</li>
+                    <li>
+                        Graded Sahih (authentic) by Imam al-Albani in Sahih
+                        an-Nasā'ī.
+                    </li>
+                </ul>
+            </div>
+
+            <!-- French References -->
+            <div id="references-fr" class="references-box">
+                <h4>Référence:</h4>
+                <ul>
+                    <li>Sunan an-Nasā'ī (Hadith 2106)</li>
+                    <li>Musnad Ahmad (Hadith 7148)</li>
+                    <li>Sahih Ibn Khuzaymah (Hadith 1887)</li>
+                    <li>
+                        Authentifié par Cheikh al-Albani dans Sahih an-Nasā'ī
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer">
+                <div class="social-share">
+                    <a
+                        href="#"
+                        class="share-btn"
+                        aria-label="Share on Facebook"
+                    >
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="share-btn" aria-label="Share on Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a
+                        href="#"
+                        class="share-btn"
+                        aria-label="Share on Instagram"
+                    >
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a
+                        href="#"
+                        class="share-btn"
+                        aria-label="Share on WhatsApp"
+                    >
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+    // Create stars
+    const starsContainer = document.querySelector(".stars");
+    const starsCount = 100;
+
+    for (let i = 0; i < starsCount; i++) {
+        const star = document.createElement("div");
+        star.classList.add("star");
+
+        // Random position
+        const posX = Math.random() * 100;
+        const posY = Math.random() * 100;
+
+        // Random size
+        const size = Math.random() * 3;
+
+        // Random animation delay
+        const delay = Math.random() * 5;
+
+        star.style.left = `${posX}%`;
+        star.style.top = `${posY}%`;
+        star.style.width = `${size}px`;
+        star.style.height = `${size}px`;
+        star.style.animationDelay = `${delay}s`;
+
+        starsContainer.appendChild(star);
+    }
+
+    // Create lanterns
+    const container = document.querySelector(".container");
+    const lanternsCount = 6;
+
+    for (let i = 0; i < lanternsCount; i++) {
+        const lantern = document.createElement("div");
+        lantern.classList.add("lantern");
+
+        // Distribute lanterns
+        const posX = 10 + i * (80 / (lanternsCount - 1));
+        const posY = Math.random() * 30 + 10;
+
+        // Animation delays
+        const delay = i * 0.3 + 3;
+
+        lantern.style.left = `${posX}%`;
+        lantern.style.top = `${posY}%`;
+        lantern.style.animationDelay = `${Math.random() * 2}s`;
+
+        // Fade-in animation
+        lantern.style.animation = `sway 8s ease-in-out infinite, fadeIn 1s ease-out forwards ${delay}s`;
+
+        container.appendChild(lantern);
+    }
+
+    // Create geometric patterns
+    const patterns = document.querySelector(".patterns");
+    const patternsCount = 5;
+
+    const patternSVGs = [
+        "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cpath fill='%23d4af37' d='M100 0 L200 100 L100 200 L0 100 Z'/%3E%3C/svg%3E",
+        "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='80' fill='none' stroke='%23d4af37' stroke-width='2'/%3E%3Ccircle cx='100' cy='100' r='60' fill='none' stroke='%23d4af37' stroke-width='2'/%3E%3Ccircle cx='100' cy='100' r='40' fill='none' stroke='%23d4af37' stroke-width='2'/%3E%3Ccircle cx='100' cy='100' r='20' fill='none' stroke='%23d4af37' stroke-width='2'/%3E%3C/svg%3E",
+        "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cpath fill='none' stroke='%23d4af37' stroke-width='2' d='M40,100 L160,100 M100,40 L100,160 M59,59 L141,141 M59,141 L141,59'/%3E%3Ccircle cx='100' cy='100' r='60' fill='none' stroke='%23d4af37' stroke-width='2'/%3E%3C/svg%3E",
+    ];
+
+    for (let i = 0; i < patternsCount; i++) {
+        const pattern = document.createElement("div");
+        pattern.classList.add("pattern");
+
+        // Random position
+        const posX = Math.random() * 80 + 10;
+        const posY = Math.random() * 80 + 10;
+
+        // Random size
+        const size = Math.random() * 150 + 100;
+
+        // Random rotation
+        const rotation = Math.random() * 360;
+
+        // Random pattern
+        const patternIndex = Math.floor(Math.random() * patternSVGs.length);
+
+        pattern.style.left = `${posX}%`;
+        pattern.style.top = `${posY}%`;
+        pattern.style.width = `${size}px`;
+        pattern.style.height = `${size}px`;
+        pattern.style.transform = `rotate(${rotation}deg)`;
+        pattern.style.backgroundImage = `url('${patternSVGs[patternIndex]}')`;
+        pattern.style.animationDelay = `${i * 0.5 + 2}s`;
+
+        patterns.appendChild(pattern);
+    }
+
+    // Language switching functionality
+    const langButtons = document.querySelectorAll(".lang-btn");
+    const contents = document.querySelectorAll(".language-content");
+    const referencesBoxes = document.querySelectorAll(".references-box");
+    const referencesBtn = document.getElementById("references-btn");
+    
+    let currentLang = "en";
+    let referencesVisible = false;
+
+    // Initialize references boxes to be hidden
+    referencesBoxes.forEach(box => {
+        box.style.display = "none";
+    });
+
+    // Language button click handler
+    langButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            const lang = btn.id.split("-")[1]; // Extract language code from id
+            
+            // Update active language button
+            langButtons.forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            
+            // Show selected language content, hide others
+            contents.forEach(content => {
+                content.classList.remove("active");
+            });
+            document.getElementById(`content-${lang}`).classList.add("active");
+            
+            // Update current language
+            currentLang = lang;
+            
+            // If references are visible, update to show correct language
+            if (referencesVisible) {
+                referencesBoxes.forEach(box => {
+                    box.style.display = "none";
+                });
+                document.getElementById(`references-${lang}`).style.display = "block";
+            }
+        });
+    });
+
+    // References button click handler
+    referencesBtn.addEventListener("click", () => {
+        referencesVisible = !referencesVisible;
+        
+        // Toggle active class on button
+        referencesBtn.classList.toggle("active", referencesVisible);
+        
+        // Show/hide references box for current language
+        referencesBoxes.forEach(box => {
+            box.style.display = "none";
+        });
+        
+        if (referencesVisible) {
+            document.getElementById(`references-${currentLang}`).style.display = "block";
+        }
+    });
+
+    // Social share buttons functionality
+    const shareButtons = document.querySelectorAll(".share-btn");
+    
+    shareButtons.forEach(btn => {
+        btn.addEventListener("click", (e) => {
+            e.preventDefault();
+            
+            // Example sharing functionality (would need to be customized for actual implementation)
+            const pageUrl = encodeURIComponent(window.location.href);
+            const shareText = encodeURIComponent("Ramadan Mubarak Kareem! 🌙");
+            
+            const icon = btn.querySelector("i");
+            let shareUrl = "";
+            
+            if (icon.classList.contains("fa-facebook-f")) {
+                shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
+            } else if (icon.classList.contains("fa-twitter")) {
+                shareUrl = `https://twitter.com/intent/tweet?text=${shareText}&url=${pageUrl}`;
+            } else if (icon.classList.contains("fa-instagram")) {
+                // Instagram doesn't support direct sharing via URL, this is just a placeholder
+                alert("Instagram sharing functionality would need to be implemented differently.");
+                return;
+            } else if (icon.classList.contains("fa-whatsapp")) {
+                shareUrl = `https://api.whatsapp.com/send?text=${shareText} ${pageUrl}`;
+            }
+            
+            if (shareUrl) {
+                window.open(shareUrl, "_blank", "width=600,height=400");
+            }
+        });
+    });
+
+    // Add responsive support for smaller screens
+    function handleResponsiveness() {
+        const width = window.innerWidth;
+        
+        // Adjust star count for performance on mobile
+        if (width < 480) {
+            // We already created stars, but we could remove some for performance
+            // This is just an example of responsive handling
+            const currentStars = document.querySelectorAll('.star');
+            for (let i = 0; i < currentStars.length; i++) {
+                if (i % 2 === 0) { // Remove every other star on small screens
+                    currentStars[i].style.opacity = '0';
+                }
+            }
+        }
+    }
+
+    // Call once on load
+    handleResponsiveness();
+    
+    // Add window resize listener
+    window.addEventListener('resize', handleResponsiveness);
+});
+        </script>
+    </body>
+</html>

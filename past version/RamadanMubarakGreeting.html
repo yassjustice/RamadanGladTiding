@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Ramadan Mubarak Kareem</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        />
+        <style>
+            @import url("https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Playfair+Display:wght@400;500;700&family=Cormorant+Garamond:wght@300;400;500;600&display=swap");
+
+            :root {
+                --deep-blue: #0b1736;
+                --royal-gold: #d4af37;
+                --royal-gold-light: #e9d498;
+                --midnight: #121638;
+                --teal: #145266;
+                --light-gold: #f8efd4;
+                --accent: #6a4c93;
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: "Cormorant Garamond", serif;
+                background: linear-gradient(
+                    135deg,
+                    var(--midnight) 0%,
+                    var(--deep-blue) 50%,
+                    var(--teal) 100%
+                );
+                color: var(--light-gold);
+                min-height: 100vh;
+                overflow-x: hidden;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
+            body::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+                opacity: 0.2;
+                pointer-events: none;
+            }
+
+            .stars {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+                z-index: 0;
+            }
+
+            .star {
+                position: absolute;
+                background-color: rgba(255, 255, 255, 0.8);
+                border-radius: 50%;
+                animation: twinkle 5s infinite;
+            }
+
+            @keyframes twinkle {
+                0% {
+                    opacity: 0.2;
+                }
+                50% {
+                    opacity: 0.8;
+                }
+                100% {
+                    opacity: 0.2;
+                }
+            }
+
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 2rem;
+                position: relative;
+                z-index: 1;
+                text-align: center;
+            }
+
+            .lantern {
+                position: absolute;
+                width: 40px;
+                height: 60px;
+                background: radial-gradient(
+                    ellipse at center,
+                    rgba(255, 215, 0, 0.6) 0%,
+                    rgba(255, 215, 0, 0) 70%
+                );
+                border-radius: 50%;
+                transform-origin: center top;
+                animation: sway 8s ease-in-out infinite;
+                opacity: 0;
+            }
+
+            .lantern::before {
+                content: "";
+                position: absolute;
+                width: 30px;
+                height: 45px;
+                background-color: var(--royal-gold);
+                border-radius: 15px;
+                top: 0;
+                left: 5px;
+                filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.8));
+            }
+
+            .lantern::after {
+                content: "";
+                position: absolute;
+                width: 10px;
+                height: 10px;
+                background-color: var(--royal-gold-light);
+                border-radius: 50%;
+                bottom: -5px;
+                left: 15px;
+            }
+
+            @keyframes sway {
+                0% {
+                    transform: rotate(-5deg);
+                }
+                50% {
+                    transform: rotate(5deg);
+                }
+                100% {
+                    transform: rotate(-5deg);
+                }
+            }
+
+            .header {
+                margin-bottom: 2rem;
+                text-align: center;
+                position: relative;
+                z-index: 10;
+            }
+
+            .moon-container {
+                position: relative;
+                height: 200px;
+                width: 200px;
+                margin: 0 auto 2rem;
+                transform-style: preserve-3d;
+                perspective: 1000px;
+            }
+
+            .moon {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                background: linear-gradient(
+                    135deg,
+                    var(--royal-gold-light) 0%,
+                    var(--royal-gold) 100%
+                );
+                box-shadow: 0 0 60px rgba(212, 175, 55, 0.6);
+                transform: translateZ(20px);
+                overflow: hidden;
+                opacity: 0;
+                transform: scale(0.5);
+                animation: moonAppear 1.5s ease-out 0.5s forwards;
+            }
+
+            @keyframes moonAppear {
+                0% {
+                    opacity: 0;
+                    transform: scale(0.5) translateZ(20px);
+                }
+                100% {
+                    opacity: 1;
+                    transform: scale(1) translateZ(20px);
+                }
+            }
+
+            .moon::before {
+                content: "";
+                position: absolute;
+                top: -30px;
+                right: -30px;
+                width: 180px;
+                height: 180px;
+                border-radius: 50%;
+                background: var(--deep-blue);
+                opacity: 0.9;
+            }
+
+            .title-container {
+                perspective: 1000px;
+                transform-style: preserve-3d;
+                margin-bottom: 3rem;
+            }
+
+            .title {
+                opacity: 0;
+                transform: translateY(30px);
+                animation: fadeIn 1s ease-out forwards;
+                animation-delay: 1.8s;
+            }
+
+            .title-arabic {
+                font-family: "Amiri", serif;
+                font-size: clamp(2.5rem, 8vw, 5rem);
+                font-weight: bold;
+                color: var(--royal-gold);
+                margin-bottom: 1rem;
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+                line-height: 1.2;
+            }
+
+            .title-english {
+                font-family: "Playfair Display", serif;
+                font-size: clamp(1.8rem, 6vw, 3rem);
+                font-weight: 500;
+                color: var(--light-gold);
+                margin-bottom: 0.5rem;
+                letter-spacing: 2px;
+            }
+
+            .title-french {
+                font-family: "Cormorant Garamond", serif;
+                font-size: clamp(1.4rem, 4vw, 2.2rem);
+                font-weight: 300;
+                color: var(--royal-gold-light);
+                font-style: italic;
+                letter-spacing: 1px;
+            }
+
+            @keyframes fadeIn {
+                0% {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                100% {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .verse-container {
+                max-width: 600px;
+                margin: 0 auto 3rem;
+                padding: 2rem;
+                background-color: rgba(11, 23, 54, 0.5);
+                border: 1px solid rgba(212, 175, 55, 0.3);
+                border-radius: 15px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+                backdrop-filter: blur(10px);
+                transform: translateY(50px);
+                opacity: 0;
+                animation: slideUp 1s ease-out forwards;
+                animation-delay: 2.5s;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .verse-container::before {
+                content: "";
+                position: absolute;
+                top: -50%;
+                left: -50%;
+                width: 200%;
+                height: 200%;
+                background: linear-gradient(
+                    45deg,
+                    transparent,
+                    rgba(212, 175, 55, 0.1),
+                    transparent
+                );
+                transform: rotate(45deg);
+                animation: shine 6s linear infinite;
+            }
+
+            @keyframes shine {
+                0% {
+                    transform: translateX(-100%) rotate(45deg);
+                }
+                100% {
+                    transform: translateX(100%) rotate(45deg);
+                }
+            }
+
+            .verse {
+                font-family: "Cormorant Garamond", serif;
+                font-size: clamp(1.1rem, 3vw, 1.6rem);
+                line-height: 1.6;
+                color: var(--light-gold);
+                text-align: center;
+                position: relative;
+            }
+
+            .verse::before,
+            .verse::after {
+                content: '"';
+                font-size: 2em;
+                color: var(--royal-gold);
+                opacity: 0.6;
+                position: absolute;
+            }
+
+            .verse::before {
+                top: -0.5em;
+                left: -0.2em;
+            }
+
+            .verse::after {
+                bottom: -0.8em;
+                right: -0.2em;
+            }
+
+            @keyframes slideUp {
+                0% {
+                    opacity: 0;
+                    transform: translateY(50px);
+                }
+                100% {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .patterns {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                pointer-events: none;
+                opacity: 0.15;
+                z-index: 0;
+            }
+
+            .pattern {
+                position: absolute;
+                background-size: contain;
+                background-repeat: no-repeat;
+                opacity: 0;
+                animation: fadePattern 2s ease-out forwards;
+            }
+
+            @keyframes fadePattern {
+                0% {
+                    opacity: 0;
+                }
+                100% {
+                    opacity: 1;
+                }
+            }
+
+            .ornament {
+                width: 100%;
+                max-width: 800px;
+                height: 80px;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 100'%3E%3Cpath fill='%23d4af37' d='M500 50c-50 0-100-20-150-40-50-20-100-30-150-30s-100 10-150 30c-50 20-100 40-150 40s-100-20-150-40c-50-20-100-30-150-30v20c50 0 100 10 150 30 50 20 100 40 150 40s100-20 150-40c50-20 100-30 150-30s100 10 150 30c50 20 100 40 150 40s100-20 150-40c50-20 100-30 150-30s100 10 150 30c50 20 100 40 150 40s100-20 150-40c50-20 100-30 150-30v-20c-50 0-100 10-150 30-50 20-100 40-150 40s-100-20-150-40c-50-20-100-30-150-30s-100 10-150 30c-50 20-100 40-150 40z'/%3E%3C/svg%3E");
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                margin: 2rem auto;
+                opacity: 0;
+                animation: fadeIn 1s ease-out forwards;
+                animation-delay: 2.2s;
+            }
+
+            .footer {
+                margin-top: 2rem;
+                font-size: 0.9rem;
+                color: var(--royal-gold-light);
+                opacity: 0.8;
+                text-align: center;
+                opacity: 0;
+                animation: fadeIn 1s ease-out forwards;
+                animation-delay: 3s;
+            }
+
+            .social-share {
+                display: flex;
+                justify-content: center;
+                gap: 1rem;
+                margin-top: 1rem;
+            }
+
+            .share-btn {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background-color: rgba(212, 175, 55, 0.2);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: var(--royal-gold);
+                text-decoration: none;
+                transition: all 0.3s ease;
+                border: 1px solid rgba(212, 175, 55, 0.3);
+            }
+
+            .share-btn:hover {
+                background-color: var(--royal-gold);
+                color: var(--deep-blue);
+                transform: translateY(-5px);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            }
+
+            @media (max-width: 768px) {
+                .container {
+                    padding: 1rem;
+                }
+
+                .moon-container {
+                    height: 150px;
+                    width: 150px;
+                }
+
+                .verse-container {
+                    padding: 1.5rem;
+                }
+
+                .ornament {
+                    height: 60px;
+                }
+            }
+
+            /* Pulse effect */
+            .pulse {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 80%;
+                height: 80%;
+                border-radius: 50%;
+                background: transparent;
+                border: 2px solid rgba(212, 175, 55, 0.5);
+                animation: pulse 4s infinite;
+            }
+
+            @keyframes pulse {
+                0% {
+                    transform: translate(-50%, -50%) scale(0.8);
+                    opacity: 0.8;
+                }
+                50% {
+                    transform: translate(-50%, -50%) scale(1.2);
+                    opacity: 0;
+                }
+                100% {
+                    transform: translate(-50%, -50%) scale(0.8);
+                    opacity: 0.8;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="stars"></div>
+        <div class="patterns"></div>
+
+        <div class="container">
+            <div class="header">
+                <div class="moon-container">
+                    <div class="moon">
+                        <div class="pulse"></div>
+                    </div>
+                </div>
+
+                <div class="title-container">
+                    <div class="title">
+                        <h1 class="title-arabic">رمضان مبارك كريم</h1>
+                        <h2 class="title-english">Ramadan Mubarak Kareem</h2>
+                        <h3 class="title-french">Ramadan Moubarak Karim</h3>
+                    </div>
+                </div>
+
+                <div class="ornament"></div>
+            </div>
+
+            <div class="verse-container">
+                <p class="verse">
+                    The Prophet (ﷺ) said: "There has come to you Ramadan, a
+                    blessed month, which Allah, the Mighty and Sublime, has
+                    enjoined you to fast. In it, the gates of Paradise are
+                    opened, the gates of Hell are closed, and the rebellious
+                    devils are chained. In it, there is a night that is better
+                    than a thousand months, and whoever is deprived of its
+                    goodness is indeed deprived."
+                </p>
+            </div>
+
+            <div class="footer">
+                <div class="social-share">
+                    <a
+                        href="#"
+                        class="share-btn"
+                        aria-label="Share on Facebook"
+                    >
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="share-btn" aria-label="Share on Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a
+                        href="#"
+                        class="share-btn"
+                        aria-label="Share on Instagram"
+                    >
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a
+                        href="#"
+                        class="share-btn"
+                        aria-label="Share on WhatsApp"
+                    >
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                // Create stars
+                const starsContainer = document.querySelector(".stars");
+                const starsCount = 100;
+
+                for (let i = 0; i < starsCount; i++) {
+                    const star = document.createElement("div");
+                    star.classList.add("star");
+
+                    // Random position
+                    const posX = Math.random() * 100;
+                    const posY = Math.random() * 100;
+
+                    // Random size
+                    const size = Math.random() * 3;
+
+                    // Random animation delay
+                    const delay = Math.random() * 5;
+
+                    star.style.left = `${posX}%`;
+                    star.style.top = `${posY}%`;
+                    star.style.width = `${size}px`;
+                    star.style.height = `${size}px`;
+                    star.style.animationDelay = `${delay}s`;
+
+                    starsContainer.appendChild(star);
+                }
+
+                // Create lanterns
+                const container = document.querySelector(".container");
+                const lanternsCount = 6;
+
+                for (let i = 0; i < lanternsCount; i++) {
+                    const lantern = document.createElement("div");
+                    lantern.classList.add("lantern");
+
+                    // Distribute lanterns
+                    const posX = 10 + i * (80 / (lanternsCount - 1));
+                    const posY = Math.random() * 30 + 10;
+
+                    // Animation delays
+                    const delay = i * 0.3 + 3;
+
+                    lantern.style.left = `${posX}%`;
+                    lantern.style.top = `${posY}%`;
+                    lantern.style.animationDelay = `${Math.random() * 2}s`;
+
+                    // Fade-in animation
+                    lantern.style.animation = `sway 8s ease-in-out infinite, fadeIn 1s ease-out forwards ${delay}s`;
+
+                    container.appendChild(lantern);
+                }
+
+                // Create geometric patterns
+                const patterns = document.querySelector(".patterns");
+                const patternsCount = 5;
+
+                const patternSVGs = [
+                    "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cpath fill='%23d4af37' d='M100 0 L200 100 L100 200 L0 100 Z'/%3E%3C/svg%3E",
+                    "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='80' fill='none' stroke='%23d4af37' stroke-width='2'/%3E%3Ccircle cx='100' cy='100' r='60' fill='none' stroke='%23d4af37' stroke-width='2'/%3E%3Ccircle cx='100' cy='100' r='40' fill='none' stroke='%23d4af37' stroke-width='2'/%3E%3Ccircle cx='100' cy='100' r='20' fill='none' stroke='%23d4af37' stroke-width='2'/%3E%3C/svg%3E",
+                    "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cpath fill='none' stroke='%23d4af37' stroke-width='2' d='M40,100 L160,100 M100,40 L100,160 M59,59 L141,141 M59,141 L141,59'/%3E%3Ccircle cx='100' cy='100' r='60' fill='none' stroke='%23d4af37' stroke-width='2'/%3E%3C/svg%3E",
+                ];
+
+                for (let i = 0; i < patternsCount; i++) {
+                    const pattern = document.createElement("div");
+                    pattern.classList.add("pattern");
+
+                    // Random position
+                    const posX = Math.random() * 80 + 10;
+                    const posY = Math.random() * 80 + 10;
+
+                    // Random size
+                    const size = Math.random() * 150 + 100;
+
+                    // Random pattern
+                    const patternIndex = Math.floor(
+                        Math.random() * patternSVGs.length
+                    );
+
+                    // Animation delay
+                    const delay = i * 0.5 + 1;
+
+                    pattern.style.left = `${posX}%`;
+                    pattern.style.top = `${posY}%`;
+                    pattern.style.width = `${size}px`;
+                    pattern.style.height = `${size}px`;
+                    pattern.style.backgroundImage = `url(${patternSVGs[patternIndex]})`;
+                    pattern.style.animationDelay = `${delay}s`;
+
+                    patterns.appendChild(pattern);
+                }
+
+                // Animate text on scroll
+                const observer = new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach((entry) => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add("animate");
+                            }
+                        });
+                    },
+                    { threshold: 0.1 }
+                );
+
+                document
+                    .querySelectorAll(".title, .verse-container, .ornament")
+                    .forEach((el) => {
+                        observer.observe(el);
+                    });
+            });
+        </script>
+    </body>
+</html>
